@@ -25,5 +25,29 @@
  * @returns {string} The letter grade or "INVALID"
  */
 export function calculateGrade(score, hasExtraCredit) {
-  // Your code here
+  if (score < 0 || score > 100) return "INVALID";
+
+  let grade;
+  let newScore;
+
+  if (hasExtraCredit) {
+    score = score + 5;
+    newScore = score >= 100 ? 100 : score;
+  } else {
+    newScore = score;
+  }
+
+  if (newScore >= 0 && newScore <= 59) {
+    grade = "F";
+  } else if (newScore >= 60 && newScore <= 69) {
+    grade = "D";
+  } else if (newScore >= 70 && newScore <= 79) {
+    grade = "C";
+  } else if (newScore >= 80 && newScore <= 89) {
+    grade = "B";
+  } else if (newScore >= 90 && newScore <= 100) {
+    grade = "A";
+  }
+
+  return grade;
 }
